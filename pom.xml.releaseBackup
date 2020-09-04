@@ -20,6 +20,7 @@
 
     <properties>
         <java.version>11</java.version>
+<!--        <maven.javadoc.skip>true</maven.javadoc.skip>-->
     </properties>
 
     <build>
@@ -41,7 +42,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:mitjko/sfg-pet-clinic.git</developerConnection>
-      <tag>sfg-pet-clinic-0.0.1</tag>
+      <tag>HEAD</tag>
   </scm>
 
 </project>

@@ -1,17 +1,28 @@
 package guru.springframework.sfgpetclinic.model;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "vets")
 public class Vet extends Person {
 
-    private Set<Specialty> specialities = new HashSet<>();
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "vet_specialty", joinColumns = @JoinColumn(name = "vet_id"),
+    inverseJoinColumns = @JoinColumn(name = "specialty_id"))
+    private Set<Specialty> specialties = new HashSet<>();
 
-    public Set<Specialty> getSpecialities() {
-        return specialities;
+    public Set<Specialty> getSpecialties() {
+        return specialties;
     }
 
-    public void setSpecialities(Set<Specialty> specialities) {
-        this.specialities = specialities;
+    public void setSpecialties(Set<Specialty> specialties) {
+        this.specialties = specialties;
     }
 }
